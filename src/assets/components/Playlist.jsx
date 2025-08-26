@@ -10,7 +10,7 @@ function Playlist({ playlistTracks, onRemove, onNameChange, onSave }) {
     return (
         <div className="Playlist">
             <input className="PlaylistName" onChange={handleChange} defaultValue={"New Playlist"} />
-            <TrackList tracks={playlistTracks} onRemove={onRemove} />
+            <TrackList tracks={playlistTracks} onRemove={onRemove} addMode={false}/>
             <button onClick={onSave}>
                 Save Playlist
             </button>
