@@ -4,31 +4,47 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [searchResults, setSearchResults] = useState([]);
+  const [playlistName, setPlaylistName] = useState('My Playlist');
+  const [playlistTracks, setPlaylistTracks] = useState([]);
+
+  const addTrack = (track) => {
+    if (playlistTracks.some((playlistTrack) => playlistTrack.id === track.id)) {
+      return;
+    }
+    setPlaylistTracks([track, ...playlistTracks]);
+  }
+  const removeTrack = (track) => {
+    setPlaylistTracks(playlistTracks.filter((playlistTrack) => playlistTrack.id !== track.id));
+  }
+  const updatePlaylistName = (name) => {
+    setPlaylistName(name);
+  }
+  const savePlaylist = () => {
+    // API WORK TBD
+  }
+  const search = (searchString) => {
+    // API WORK TBD
+  } 
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+
+    <div className="App">
+      <div className="search-bar">
+        <SearchBar onSearch={search} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className="search-results">
+        <SearchResults searchResults={searchResults} onAdd={addTrack} />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      <div className="playlist">
+        <Playlist 
+          playlistTracks={playlistTracks} 
+          onRemove={removeTrack} 
+          onNameChange={updatePlaylistName} 
+          onSave={savePlaylist} 
+        />
+      </div>
+    </div>
   )
 }
 
