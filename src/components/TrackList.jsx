@@ -1,4 +1,5 @@
 import React from 'react';
+import Track from './Track';
 
 
 function TrackList({ tracks, onAdd, onRemove, addMode }) {
@@ -22,3 +23,5 @@ function TrackList({ tracks, onAdd, onRemove, addMode }) {
         </div>
     )
 }
+
+export default TrackList;

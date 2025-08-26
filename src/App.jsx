@@ -2,11 +2,15 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import SearchBar from './components/SearchBar.jsx'
+import SearchResults from './components/SearchResults.jsx'
+import Playlist from './components/Playlist.jsx'      
+
 
 function App() {
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState([{name: 'name', artist: 'artist', album: 'album', id: 1}]);
   const [playlistName, setPlaylistName] = useState('My Playlist');
-  const [playlistTracks, setPlaylistTracks] = useState([]);
+  const [playlistTracks, setPlaylistTracks] = useState([{name: 'name', artist: 'artist', album: 'album', id: 1}]);
 
   const addTrack = (track) => {
     if (playlistTracks.some((playlistTrack) => playlistTrack.id === track.id)) {

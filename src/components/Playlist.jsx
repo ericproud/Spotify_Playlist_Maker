@@ -17,3 +17,5 @@ function Playlist({ playlistTracks, onRemove, onNameChange, onSave }) {
         </div>
     )
 }
+
+export default Playlist;
