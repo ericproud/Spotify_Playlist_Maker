@@ -4,7 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import SearchBar from './components/SearchBar.jsx'
 import SearchResults from './components/SearchResults.jsx'
-import Playlist from './components/Playlist.jsx'      
+import Playlist from './components/Playlist.jsx' 
+import RequestAuthorizationButton from './Spotify.jsx'   
 
 
 function App() {
@@ -34,6 +35,9 @@ function App() {
   return (
 
     <div className="App">
+      <div className="request-auth-button">
+        <RequestAuthorizationButton />
+      </div>
       <div className="search-bar">
         <SearchBar onSearch={search} />
       </div>
