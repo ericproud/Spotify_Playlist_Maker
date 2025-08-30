@@ -5,6 +5,7 @@ import './App.css'
 import SearchBar from './components/SearchBar.jsx'
 import SearchResults from './components/SearchResults.jsx'
 import Playlist from './components/Playlist.jsx' 
+import tempTest from './components/Spotify.jsx'
 
 
 function App() {
@@ -34,6 +35,9 @@ function App() {
   return (
 
     <div className="App">
+      <div className="request-auth-button">
+        <tempTest />
+      </div>
       <div className="search-bar">
         <SearchBar onSearch={search} />
       </div>
