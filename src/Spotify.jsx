@@ -4,14 +4,14 @@ let accessToken = '';
 
 const tempTest = () => {
     return (
-        <>
+        <div>
             <button onClick={SpotifyAPI.getAccessToken}>
                 Authorize Spotify
             </button>
             <button onClick={console.log(accessToken)}>
                 Test
             </button>
-        </>
+        </div>
     )
 }
 
