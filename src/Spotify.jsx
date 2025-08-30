@@ -40,7 +40,7 @@ const SpotifyAPI = {
             const baseUrl = 'https://accounts.spotify.com/authorize';
             const authenticationUrl = `${baseUrl}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${encodeURIComponent(scopes.join(' '))}&response_type=token&show_dialog=true`;
 
-            // Redirect to Spotify authorization URL
+            // Redirect to Spotify authorization URL/
             window.location.href = authenticationUrl;
         }
     }
