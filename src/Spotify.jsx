@@ -38,15 +38,8 @@ const SpotifyAPI = {
             const redirectUri = import.meta.env.VITE_REDIRECT_URI;
             const scope = 'playlist-modify-private playlist-modify-public';
             const baseUrl = 'https://accounts.spotify.com/authorize';
-            
-            //const authUrl = `${baseUrl}?client_id=${clientId}&response_type=token&scope=${encodeURIComponent(scopes.join(' '))}&redirect_uri=${encodeURIComponent(redirectUri)}`;
-            //window.location.href = authUrl;
 
-            var url = 'https://accounts.spotify.com/authorize';
-            url += '?response_type=token';
-            url += '&client_id=' + encodeURIComponent(clientId);
-            url += '&scope=' + encodeURIComponent(scope);
-            url += '&redirect_uri=' + encodeURIComponent(redirectUri);
+            const url = `${baseUrl}?response_type=token&client_id=${encodeURIComponent(clientId)}&scope=${encodeURIComponent(scope)}&redirect_uri=${encodeURIComponent(redirectUri)}`;
             window.location.href = url;
             console.log('Redirecting to:', url);
         }
