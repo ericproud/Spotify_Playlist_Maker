@@ -6,6 +6,7 @@ import SearchBar from './components/SearchBar.jsx'
 import SearchResults from './components/SearchResults.jsx'
 import Playlist from './components/Playlist.jsx' 
 import TempTest from './Spotify.jsx'
+import { SpotifyAPI } from './Spotify.jsx'
 
 
 function App() {

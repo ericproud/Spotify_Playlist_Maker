@@ -5,7 +5,7 @@ let accessToken = '';
 const TempTest = () => {
     return (
         <div>
-            <button onClick={() => SpotifyAPI.getAccessToken}>
+            <button onClick={() => SpotifyAPI.getAccessToken()}>
                 Authorize Spotify
             </button>
             <button onClick={() => console.log(accessToken)}>
@@ -47,3 +47,4 @@ const SpotifyAPI = {
 }
 
 export default TempTest;
+export { SpotifyAPI };
