@@ -39,8 +39,8 @@ const SpotifyAPI = {
             const scope = 'playlist-modify-private playlist-modify-public';
             const baseUrl = 'https://accounts.spotify.com/authorize';
             
-            const authUrl = `${baseUrl}?client_id=${clientId}&response_type=token&scope=${encodeURIComponent(scopes.join(' '))}&redirect_uri=${encodeURIComponent(redirectUri)}`;
-            window.location.href = authUrl;
+            //const authUrl = `${baseUrl}?client_id=${clientId}&response_type=token&scope=${encodeURIComponent(scopes.join(' '))}&redirect_uri=${encodeURIComponent(redirectUri)}`;
+            //window.location.href = authUrl;
 
             var url = 'https://accounts.spotify.com/authorize';
             url += '?response_type=token';
