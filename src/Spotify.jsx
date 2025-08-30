@@ -2,16 +2,16 @@ import React from 'react';
 
 let accessToken = '';
 
-const tempTest = () => {
+const TempTest = () => {
     return (
-        <>
+        <div>
             <button onClick={SpotifyAPI.getAccessToken}>
                 Authorize Spotify
             </button>
-            <button onClick={console.log(accessToken)}>
+            <button onClick={() => console.log(accessToken)}>
                 Test
             </button>
-        </>
+        </div>
     )
 }
 
@@ -34,15 +34,16 @@ const SpotifyAPI = {
         }
         // Case 3: No accessToken, redirect to Spotify authorization
         else {
+            const clientId = import.meta.env.VITE_CLIENT_ID;
+            const redirectUri = import.meta.env.VITE_REDIRECT_URI;
+            const scopes = ['playlist-modify-private', 'playlist-modify-public'];
+            const baseUrl = 'https://accounts.spotify.com/authorize';
+            const authenticationUrl = `${baseUrl}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${encodeURIComponent(scopes.join(' '))}&response_type=token&show_dialog=true`;
 
+            // Redirect to Spotify authorization URL
+            window.location.href = authenticationUrl;
         }
-        const clientId = import.meta.env.VITE_CLIENT_ID;
-        const redirectUri = import.meta.env.VITE_REDIRECT_URI;
-        const scopes = ['playlist-modify-private', 'playlist-modify-public'];
-        const baseUrl = 'https://accounts.spotify.com/authorize';
-        const authenticationUrl = `${baseUrl}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${encodeURIComponent(scopes.join(' '))}&response_type=token&show_dialog=true`;
-
-        // Redirect to Spotify authorization URL
-        window.location.href = authenticationUrl;
     }
 }
+
+export default TempTest;
