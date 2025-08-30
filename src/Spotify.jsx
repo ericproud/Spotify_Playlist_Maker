@@ -47,4 +47,4 @@ const SpotifyAPI = {
     }
 }
 
-export default tempTest;
+export default TempTest;
