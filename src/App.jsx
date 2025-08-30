@@ -5,7 +5,7 @@ import './App.css'
 import SearchBar from './components/SearchBar.jsx'
 import SearchResults from './components/SearchResults.jsx'
 import Playlist from './components/Playlist.jsx' 
-import tempTest from './Spotify.jsx'
+import TempTest from './Spotify.jsx'
 
 
 function App() {
