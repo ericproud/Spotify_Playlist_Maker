@@ -39,8 +39,8 @@ const SpotifyAPI = {
             const scopes = ['playlist-modify-private', 'playlist-modify-public'];
             const baseUrl = 'https://accounts.spotify.com/authorize';
             
-            const authUrl = `${baseUrl}?client_id=${clientId}&response_type=token&scope=${encodeURIComponent(scope)}&redirect_uri=${encodeURIComponent(redirectUri)}`;
-            window.location.href = authenticationUrl;
+            const authUrl = `${baseUrl}?client_id=${clientId}&response_type=token&scope=${encodeURIComponent(scopes.join(' '))}&redirect_uri=${encodeURIComponent(redirectUri)}`;
+            window.location.href = authUrl;
         }
     }
 }
