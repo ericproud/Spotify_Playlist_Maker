@@ -46,3 +46,5 @@ const SpotifyAPI = {
         window.location.href = authenticationUrl;
     }
 }
+
+export default tempTest;
