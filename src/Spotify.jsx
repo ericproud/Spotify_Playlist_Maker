@@ -8,7 +8,7 @@ const tempTest = () => {
             <button onClick={SpotifyAPI.getAccessToken}>
                 Authorize Spotify
             </button>
-            <button onClick={console.log(accessToken)}>
+            <button onClick={() => console.log(accessToken)}>
                 Test
             </button>
         </div>
