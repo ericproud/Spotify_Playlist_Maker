@@ -2,7 +2,7 @@ import React from 'react';
 
 let accessToken = '';
 
-const tempTest = () => {
+const TempTest = () => {
     return (
         <div>
             <button onClick={SpotifyAPI.getAccessToken}>

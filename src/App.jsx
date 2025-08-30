@@ -36,7 +36,7 @@ function App() {
 
     <div className="App">
       <div className="request-auth-button">
-        <tempTest />
+        <TempTest />
       </div>
       <div className="search-bar">
         <SearchBar onSearch={search} />
