@@ -8,9 +8,10 @@ import Playlist from './components/Playlist.jsx'
 import TempTest from './Spotify.jsx'
 import { SpotifyAPI } from './Spotify.jsx'
 import Authorization from './components/Authorization.jsx'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import SpotifyCallback from './components/SpotifyCallback';
 
-
-function App() {
+function AppContent() {
 const [searchResults, setSearchResults] = useState([{name: 'name', artist: 'artist', album: 'album', id: 1}]);
   const [playlistName, setPlaylistName] = useState('My Playlist');
   const [playlistTracks, setPlaylistTracks] = useState([{name: 'name', artist: 'artist', album: 'album', id: 1}]);
@@ -55,6 +56,17 @@ const [searchResults, setSearchResults] = useState([{name: 'name', artist: 'arti
         />
       </div>
     </div>
+  )
+}
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/callback" element={<SpotifyCallback />} />
+        <Route path="/" element={<AppContent />} />
+      </Routes>
+    </Router>
   )
 }
 
