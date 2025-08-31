@@ -56,7 +56,10 @@ const [searchResults, setSearchResults] = useState([{name: 'name', artist: 'arti
         />
       </div>
       <div className="temp-test">
-        {localStorage.getItem('accessToken') ? localStorage.getItem('accessToken') : <p>No Access Token</p>}
+        {localStorage.getItem('access_token') ? (
+          <p>{localStorage.getItem('access_token')}</p>) 
+          : (<p>No Access Token</p>)
+        }
       </div>
     </div>
   )
