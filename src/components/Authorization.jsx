@@ -25,3 +25,5 @@ function Authorization() {
     </div>
   );
 }
+
+export default Authorization;
