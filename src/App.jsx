@@ -55,6 +55,9 @@ const [searchResults, setSearchResults] = useState([{name: 'name', artist: 'arti
           onSave={savePlaylist} 
         />
       </div>
+      <div className="temp-test">
+        {localStorage.getItem('accessToken') ? localStorage.getItem('accessToken') : <p>No Access Token</p>}
+      </div>
     </div>
   )
 }
