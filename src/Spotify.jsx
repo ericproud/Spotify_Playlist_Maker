@@ -79,7 +79,7 @@ const getToken = async (code) => {
   localStorage.setItem('access_token', data.access_token);
 };
 
-export const searchSpotify = async (term) => {
+const searchSpotify = async (term) => {
   const accessToken = localStorage.getItem('access_token');
   if (!accessToken) throw new Error('No access token available');
   const response = await fetch(`https://api.spotify.com/v1/search?type=track&q=${encodeURIComponent(term)}`, {
