@@ -1,41 +1,82 @@
 import React from 'react';
 
-let accessToken = '';
+const clientId = import.meta.env.VITE_CLIENT_ID;
+const redirectUri = import.meta.env.VITE_REDIRECT_URI;
+const baseUrl = 'https://accounts.spotify.com/authorize';
+const scopes = ['playlist-modify-private', 'playlist-modify-public'];
 
-const SpotifyAPI = {
-    getAccessToken() {
-        if (accessToken) {
-            return accessToken;
-        }
+const generateRandomString = (length) => {
+  const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const values = crypto.getRandomValues(new Uint8Array(length));
+  return values.reduce((acc, x) => acc + possible[x % possible.length], "");
+}
 
-        const FoundAccessToken = window.location.href.match(/access_token=([^&]*)/);
-        const FoundexpiresIn = window.location.href.match(/expires_in=([^&]*)/);
-        if (FoundAccessToken && FoundexpiresIn) {
-            accessToken = FoundAccessToken[1];
-            const expiresIn = Number(FoundexpiresIn[1]);
-            window.setTimeout(() => accessToken = '', expiresIn * 1000);
-            window.history.pushState({token: accessToken}, null, '/');
-            return accessToken;
-        } else {
-            const clientId = import.meta.env.VITE_CLIENT_ID;
-            const redirectUri = import.meta.env.VITE_REDIRECT_URI;
-            const scope = 'playlist-modify-private playlist-modify-public';
-            const baseUrl = 'https://accounts.spotify.com/authorize';
+const sha256 = async (plain) => {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(plain);
+  return window.crypto.subtle.digest('SHA-256', data);
+}
 
-            const url = `${baseUrl}?response_type=token&client_id=${encodeURIComponent(clientId)}&scope=${encodeURIComponent(scope)}&redirect_uri=${encodeURIComponent(redirectUri)}`;
-            console.log('Redirecting to:', url);
-            window.location.href = url;
-        }
-    }
-};
+const base64encode = (input) => {
+  return btoa(String.fromCharCode(...new Uint8Array(input)))
+    .replace(/=/g, '')
+    .replace(/\+/g, '-')
+    .replace(/\//g, '_');
+}
 
-const TempTest = () => (
-    <div>
-        <button onClick={() => SpotifyAPI.getAccessToken()}>
-            Authorize Spotify
-        </button>
-    </div>
-);
+// Step 1: Call this when user clicks "Authorize"
+const redirectToAuth = async () => {
+  const codeVerifier = generateRandomString(64);
+  const hashed = await sha256(codeVerifier);
+  const codeChallenge = base64encode(hashed);
 
-export default TempTest;
-export { SpotifyAPI };
+  localStorage.setItem('code_verifier', codeVerifier);
+
+  const params = {
+    response_type: 'code',
+    client_id: clientId,
+    scope: scopes.join(' '),
+    code_challenge_method: 'S256',
+    code_challenge: codeChallenge,
+    redirect_uri: redirectUri
+  };
+  const authUrl = new URL(baseUrl);
+  authUrl.search = new URLSearchParams(params).toString();
+  window.location.href = authUrl.toString();
+}
+
+// Step 2: Call this on your /callback page/component after redirect
+const getCodeFromRedirectUri = () => {
+  const uriParams = new URLSearchParams(window.location.search);
+  return uriParams.get('code');
+}
+
+// Step 3: Call this with the code from the URL
+const getToken = async (code) => {
+  const codeVerifier = localStorage.getItem('code_verifier');
+  const endpoint = 'https://accounts.spotify.com/api/token';
+
+  const payload = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: new URLSearchParams({
+      grant_type: 'authorization_code',
+      code: code,
+      redirect_uri: redirectUri,
+      client_id: clientId,
+      code_verifier: codeVerifier
+    })
+  };
+  const response = await fetch(endpoint, payload);
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch access token');
+  }
+
+  const data = await response.json();
+  localStorage.setItem('access_token', data.access_token);
+}
+
+export { redirectToAuth, getCodeFromRedirectUri, getToken };

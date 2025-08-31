@@ -7,10 +7,11 @@ import SearchResults from './components/SearchResults.jsx'
 import Playlist from './components/Playlist.jsx' 
 import TempTest from './Spotify.jsx'
 import { SpotifyAPI } from './Spotify.jsx'
+import Authorization from './components/Authorization.jsx'
 
 
 function App() {
-  const [searchResults, setSearchResults] = useState([{name: 'name', artist: 'artist', album: 'album', id: 1}]);
+const [searchResults, setSearchResults] = useState([{name: 'name', artist: 'artist', album: 'album', id: 1}]);
   const [playlistName, setPlaylistName] = useState('My Playlist');
   const [playlistTracks, setPlaylistTracks] = useState([{name: 'name', artist: 'artist', album: 'album', id: 1}]);
 
@@ -37,7 +38,7 @@ function App() {
 
     <div className="App">
       <div className="request-auth-button">
-        <TempTest />
+        <Authorization />
       </div>
       <div className="search-bar">
         <SearchBar onSearch={search} />
