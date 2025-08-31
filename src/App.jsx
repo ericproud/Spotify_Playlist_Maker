@@ -31,9 +31,10 @@ const [searchResults, setSearchResults] = useState([{name: 'name', artist: 'arti
   const savePlaylist = () => {
     // API WORK TBD
   }
-  const search = (searchString) => {
-    // API WORK TBD
-  } 
+    
+  const search = useCallback((term) => {
+    Spotify.search('panda').then(setSearchResults);
+  }, []);
 
   return (
 
