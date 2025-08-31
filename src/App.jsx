@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -6,10 +6,11 @@ import SearchBar from './components/SearchBar.jsx'
 import SearchResults from './components/SearchResults.jsx'
 import Playlist from './components/Playlist.jsx' 
 import TempTest from './Spotify.jsx'
-import { SpotifyAPI } from './Spotify.jsx'
+import { SpotifyAPI, searchSpotify } from './Spotify.jsx'
 import Authorization from './components/Authorization.jsx'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SpotifyCallback from './components/SpotifyCallback';
+
 
 function AppContent() {
 const [searchResults, setSearchResults] = useState([{name: 'name', artist: 'artist', album: 'album', id: 1}]);
@@ -33,7 +34,7 @@ const [searchResults, setSearchResults] = useState([{name: 'name', artist: 'arti
   }
     
   const search = useCallback((term) => {
-    Spotify.search('panda').then(setSearchResults);
+    searchSpotify(term).then(setSearchResults);
   }, []);
 
   return (

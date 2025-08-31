@@ -79,7 +79,7 @@ const getToken = async (code) => {
   localStorage.setItem('access_token', data.access_token);
 };
 
-const search = (term) => {
+const searchSpotify = (term) => {
   const accessToken = Spotify.getAccessToken();
   return fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
     headers: {
@@ -101,4 +101,4 @@ const search = (term) => {
   });
 };
 
-export { redirectToAuth, getCodeFromRedirectUri, getToken, search };
+export { redirectToAuth, getCodeFromRedirectUri, getToken, searchSpotify };
