@@ -13,9 +13,9 @@ import SpotifyCallback from './components/SpotifyCallback';
 
 
 function AppContent() {
-const [searchResults, setSearchResults] = useState([{name: 'name', artist: 'artist', album: 'album', id: 1}]);
+const [searchResults, setSearchResults] = useState([{name: 'name', artists: ['artist'], album: 'album', id: 1}]);
   const [playlistName, setPlaylistName] = useState('My Playlist');
-  const [playlistTracks, setPlaylistTracks] = useState([{name: 'name', artist: 'artist', album: 'album', id: 1}]);
+  const [playlistTracks, setPlaylistTracks] = useState([{name: 'name', artists: ['artist'], album: 'album', id: 1}]);
 
   const addTrack = (track) => {
     if (playlistTracks.some((playlistTrack) => playlistTrack.id === track.id)) {
