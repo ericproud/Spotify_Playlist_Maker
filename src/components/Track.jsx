@@ -13,13 +13,13 @@ function Track({ track, onAdd, onRemove, addMode }) {
             {
                 addMode ?
                     (
-                        <button onClick={onAdd} >
+                        <button onClick={() => onAdd(track)} >
                             +
                         </button>
                     )
                     :
                     (
-                        <button onClick={onRemove} >
+                        <button onClick={() => onRemove(track)} >
                             -
                         </button>
                     )
