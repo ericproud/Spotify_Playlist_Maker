@@ -14,11 +14,11 @@ function App() {
   const [playlistTracks, setPlaylistTracks] = useState([{name: 'name', artist: 'artist', album: 'album', id: 1}]);
 
   const addTrack = (track) => {
-    if (playlistTracks.some((playlistTrack) => playlistTrack.id === track.id)) {
-      return;
+    if (!playlistTracks.some((playlistTrack) => playlistTrack.id === track.id)) {
+      setPlaylistTracks([track, ...playlistTracks]);
     }
-    setPlaylistTracks([track, ...playlistTracks]);
   }
+
   const removeTrack = (track) => {
     setPlaylistTracks(playlistTracks.filter((playlistTrack) => playlistTrack.id !== track.id));
   }
@@ -33,7 +33,6 @@ function App() {
   } 
 
   return (
-
     <div className="App">
       <div className="request-auth-button">
         <TempTest />
