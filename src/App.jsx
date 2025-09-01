@@ -13,9 +13,9 @@ import SpotifyCallback from './components/SpotifyCallback';
 
 
 function AppContent() {
-const [searchResults, setSearchResults] = useState([{name: 'name', artists: ['artist'], album: 'album', id: 1}]);
+const [searchResults, setSearchResults] = useState([]);
   const [playlistName, setPlaylistName] = useState('My Playlist');
-  const [playlistTracks, setPlaylistTracks] = useState([{name: 'name', artists: ['artist'], album: 'album', id: 1}]);
+  const [playlistTracks, setPlaylistTracks] = useState([]);
 
   const addTrack = (track) => {
     if (!playlistTracks.some((playlistTrack) => playlistTrack.id === track.id)) {
@@ -56,16 +56,10 @@ const [searchResults, setSearchResults] = useState([{name: 'name', artists: ['ar
           onSave={savePlaylist} 
         />
       </div>
-      <div className="temp-test">
-        {localStorage.getItem('access_token') ? (
-          <p>{localStorage.getItem('access_token')}</p>) 
-          : (<p>No Access Token</p>)
-        }
-      </div>
     </div>
   )
 }
-
+// stuff
 function App() {
   return (
     <Router>
@@ -74,6 +68,7 @@ function App() {
         <Route path="/" element={<AppContent />} />
       </Routes>
     </Router>
+
   )
 }
 
