@@ -18,10 +18,9 @@ const [searchResults, setSearchResults] = useState([{name: 'name', artists: ['ar
   const [playlistTracks, setPlaylistTracks] = useState([{name: 'name', artists: ['artist'], album: 'album', id: 1}]);
 
   const addTrack = (track) => {
-    if (playlistTracks.some((playlistTrack) => playlistTrack.id === track.id)) {
-      return;
+    if (!playlistTracks.some((playlistTrack) => playlistTrack.id === track.id)) {
+      setPlaylistTracks([track, ...playlistTracks]);
     }
-    setPlaylistTracks([track, ...playlistTracks]);
   }
   const removeTrack = (track) => {
     setPlaylistTracks(playlistTracks.filter((playlistTrack) => playlistTrack.id !== track.id));
