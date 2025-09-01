@@ -8,7 +8,7 @@ function Track({ track, onAdd, onRemove, addMode }) {
                 {track.name}
             </h2>
             <h3 className="songInfo">
-                {track.artists.join(', ')} | {track.album}
+                {track.artists ? track.artists.join(', ') : ''} | {track.album}
             </h3>
             {
                 addMode ?
