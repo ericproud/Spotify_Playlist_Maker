@@ -6,12 +6,10 @@ import SearchBar from './components/SearchBar.jsx'
 import SearchResults from './components/SearchResults.jsx'
 import Playlist from './components/Playlist.jsx' 
 import TempTest from './util/Spotify.jsx'
-import { SpotifyAPI, searchSpotify } from './util/Spotify.jsx'
+import { SpotifyAPI, searchSpotify, createPlaylist } from './util/Spotify.jsx'
 import Authorization from './components/Authorization.jsx'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SpotifyCallback from './components/SpotifyCallback';
-import createPlaylist from './util/Spotify.jsx';
-
 
 function AppContent() {
 const [searchResults, setSearchResults] = useState([]);
