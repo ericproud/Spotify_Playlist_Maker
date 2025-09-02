@@ -8,8 +8,9 @@ import Playlist from './components/Playlist.jsx'
 import TempTest from './util/Spotify.jsx'
 import { SpotifyAPI, searchSpotify, createPlaylist } from './util/Spotify.jsx'
 import Authorization from './components/Authorization.jsx'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import SpotifyCallback from './components/SpotifyCallback';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import SpotifyCallback from './components/SpotifyCallback'
+import PlaylistLink from './components/PlaylistLink'
 
 function AppContent() {
 const [searchResults, setSearchResults] = useState([]);
@@ -61,9 +62,7 @@ const [searchResults, setSearchResults] = useState([]);
         />
       </div>
       <div className="playlist-link">
-        <a href={playlistLink} target="_blank" rel="noopener noreferrer">
-          {playlistLink === 'https://open.spotify.com/playlist/' ? 'Playlist Not Created' : 'Open Playlist in Spotify'}
-        </a>
+        <PlaylistLink link={playlistLink} />
       </div>
     </div>
   )
