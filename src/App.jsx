@@ -29,7 +29,8 @@ const [searchResults, setSearchResults] = useState([]);
     setPlaylistName(name);
   }
   const savePlaylist = () => {
-    createPlaylist(playlistName, playlistTracks.map(track => track.uri));
+    const playlistId = createPlaylist(playlistName, playlistTracks.map(track => track.uri));
+    setPlaylistLink(`https://open.spotify.com/playlist/${playlistId}`);
     setPlaylistName('New Playlist');
     setPlaylistTracks([]);
     setPlaylistLink('https://open.spotify.com/playlist/'); // Placeholder link
