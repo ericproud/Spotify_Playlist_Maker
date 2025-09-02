@@ -34,7 +34,6 @@ const [searchResults, setSearchResults] = useState([]);
     setPlaylistLink(`https://open.spotify.com/playlist/${playlistId}`);
     setPlaylistName('New Playlist');
     setPlaylistTracks([]);
-    setPlaylistLink('https://open.spotify.com/playlist/'); // Placeholder link
   }
     
   const search = useCallback((term) => {
