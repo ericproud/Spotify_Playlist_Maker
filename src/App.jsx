@@ -29,8 +29,8 @@ const [searchResults, setSearchResults] = useState([]);
   const updatePlaylistName = (name) => {
     setPlaylistName(name);
   }
-  const savePlaylist = () => {
-    const playlistId = createPlaylist(playlistName, playlistTracks.map(track => track.uri));
+  const savePlaylist = async () => {
+    const playlistId = await createPlaylist(playlistName, playlistTracks.map(track => track.uri));
     setPlaylistLink(`https://open.spotify.com/playlist/${playlistId}`);
     setPlaylistName('New Playlist');
     setPlaylistTracks([]);
