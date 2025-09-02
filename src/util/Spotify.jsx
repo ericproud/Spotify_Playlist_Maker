@@ -79,9 +79,24 @@ const getToken = async (code) => {
   localStorage.setItem('access_token', data.access_token);
 };
 
+const getUserId = async () => {
+  const accessToken = localStorage.getItem('access_token');
+  if (!accessToken) throw new Error('No access token available');
+  
+  const response = await fetch('https://api.spotify.com/v1/me', {
+    headers: {
+      Authorization: `Bearer ${accessToken}`
+    }
+  });
+
+  const jsonResponse = await response.json();
+  return jsonResponse.id;
+}
+
 const searchSpotify = async (term) => {
   const accessToken = localStorage.getItem('access_token');
   if (!accessToken) throw new Error('No access token available');
+
   const response = await fetch(`https://api.spotify.com/v1/search?type=track&q=${encodeURIComponent(term)}`, {
     headers: {
       Authorization: `Bearer ${accessToken}`
@@ -100,4 +115,39 @@ const searchSpotify = async (term) => {
   }));
 };
 
-export { redirectToAuth, getCodeFromRedirectUri, getToken, searchSpotify };
+const createPlaylist = async (name, trackUris) => {
+  const accessToken = localStorage.getItem('access_token');
+  if (!accessToken) throw new Error('No access token available');
+  const userId = await getUserId();
+
+  const createPlaylistResponse = await fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      name: name,
+      public: true
+    })
+  });
+
+  const playlistData = await createPlaylistResponse.json();
+  const playlistId = playlistData.id;
+  if (!playlistId) throw new Error('Failed to create playlist');
+
+  await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {  
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${accessToken}`, 
+      'Content-Type': 'application/json'
+    },    
+    body: JSON.stringify({
+      uris: trackUris
+    })
+  });
+
+  return playlistId;
+}
+
+export { redirectToAuth, getCodeFromRedirectUri, getToken, searchSpotify, createPlaylist };

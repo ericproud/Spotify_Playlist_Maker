@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getCodeFromRedirectUri, getToken } from '../Spotify';
+import { getCodeFromRedirectUri, getToken } from '../util/Spotify';
 
 const SpotifyCallback = () => {
   const [error, setError] = useState(null);
