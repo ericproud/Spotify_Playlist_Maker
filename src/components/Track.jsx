@@ -6,9 +6,9 @@ function Track({ track, onAdd, onRemove, addMode }) {
 
     return (
       <Card bg="dark" text="light" className="px-1 py-1" >
-        <Card.Body className="py-1 px-2">
+        <Card.Body className="py-1 px-1">
           <div className="d-flex justify-content-between align-items-center">
-            <div>
+            <div className="text-start">
               <Card.Title>{track.name}</Card.Title>
               <Card.Text>
                 {track.artists ? track.artists.join(", ") : ""} | {track.album}
