@@ -8,11 +8,12 @@ function Track({ track, onAdd, onRemove, addMode }) {
       <Card bg="dark" text="light" className="px-1 py-1" >
         <Card.Body>
           <div className="d-flex justify-content-between align-items-center">
-            <Card.Title className="text-start">{track.name}</Card.Title>
-            <Card.Text className="text-start text-muted">
-              {track.artists ? track.artists.join(", ") : ""} | {track.album}
-            </Card.Text>
-
+            <div>
+              <Card.Title className="text-start">{track.name}</Card.Title>
+              <Card.Text className="text-start text-muted">
+                {track.artists ? track.artists.join(", ") : ""} | {track.album}
+              </Card.Text>
+            </div>
             <Button className="text-end"
               variant={addMode ? "success" : "danger"}
               onClick={() => addMode ? onAdd(track) : onRemove(track)}
