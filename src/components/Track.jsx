@@ -9,9 +9,9 @@ function Track({ track, onAdd, onRemove, addMode }) {
         <Card.Body>
           <div className="d-flex justify-content-between align-items-center">
             <Card.Title className="text-start">{track.name}</Card.Title>
-            <Card.Subtitle className="text-start text-muted">
+            <Card.Text className="text-start text-muted">
               {track.artists ? track.artists.join(", ") : ""} | {track.album}
-            </Card.Subtitle>
+            </Card.Text>
 
             <Button className="text-end"
               variant={addMode ? "success" : "danger"}
