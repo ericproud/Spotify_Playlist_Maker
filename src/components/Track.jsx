@@ -9,10 +9,10 @@ function Track({ track, onAdd, onRemove, addMode }) {
         <Card.Body className="py-1 px-1">
           <div className="d-flex justify-content-between align-items-center">
             <div className="text-start">
-              <Card.Title>{track.name}</Card.Title>
-              <Card.Text>
+              <Card.Title className="ps-2">{track.name}</Card.Title>
+              <Card.Subtitle className="ps-2 text-muted">
                 {track.artists ? track.artists.join(", ") : ""} | {track.album}
-              </Card.Text>
+              </Card.Subtitle>
             </div>
 
             <Button
