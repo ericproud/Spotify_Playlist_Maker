@@ -6,16 +6,14 @@ function Track({ track, onAdd, onRemove, addMode }) {
 
     return (
       <Card bg="dark" text="light" className="px-1 py-1" >
-        <Card.Body className="py-1 px-1 flex-grow-1 me-2">
+        <Card.Body>
           <div className="d-flex justify-content-between align-items-center">
-            <div className="text-start">
-              <Card.Title className="ps-2">{track.name}</Card.Title>
-              <Card.Subtitle className="ps-2 text-muted">
-                {track.artists ? track.artists.join(", ") : ""} | {track.album}
-              </Card.Subtitle>
-            </div>
+            <Card.Title className="text-start">{track.name}</Card.Title>
+            <Card.Subtitle className="text-start text-muted">
+              {track.artists ? track.artists.join(", ") : ""} | {track.album}
+            </Card.Subtitle>
 
-            <Button
+            <Button className="text-end"
               variant={addMode ? "success" : "danger"}
               onClick={() => addMode ? onAdd(track) : onRemove(track)}
             >
