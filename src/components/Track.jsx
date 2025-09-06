@@ -5,8 +5,8 @@ import Button from 'react-bootstrap/Button';
 function Track({ track, onAdd, onRemove, addMode }) {
 
     return (
-      <Card bg="dark" text="light" className="mb-3">
-        <Card.Body>
+      <Card bg="dark" text="light" className="mb-3" >
+        <Card.Body className="py-1 px-2">
           <div className="d-flex justify-content-between align-items-center">
             <div>
               <Card.Title>{track.name}</Card.Title>
