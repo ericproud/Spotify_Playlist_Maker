@@ -5,16 +5,24 @@ import Button from 'react-bootstrap/Button';
 function Track({ track, onAdd, onRemove, addMode }) {
 
     return (
-      <Card>
-          <Card.Body>
+      <Card style={{ width: "100%", height: "120px" }} bg="dark" text="light" className="mb-3">
+        <Card.Body>
+          <div className="d-flex justify-content-between align-items-center">
+            <div>
               <Card.Title>{track.name}</Card.Title>
               <Card.Text>
-                  {track.artists ? track.artists.join(', ') : ''} | {track.album}
+                {track.artists ? track.artists.join(", ") : ""} | {track.album}
               </Card.Text>
-              <Button variant={addMode ? "success" : "danger"} onClick={() => onAdd(track)} >
-                {addMode ? "+" : "-"}
-              </Button>
-          </Card.Body>
+            </div>
+
+            <Button
+              variant={addMode ? "success" : "danger"}
+              onClick={() => addMode ? onAdd(track) : onRemove(track)}
+            >
+              {addMode ? "+" : "-"}
+            </Button>
+          </div>
+        </Card.Body>
       </Card>
 
       /*
