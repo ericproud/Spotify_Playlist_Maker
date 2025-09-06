@@ -11,6 +11,7 @@ import Authorization from './components/Authorization.jsx'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import SpotifyCallback from './components/SpotifyCallback'
 import PlaylistLink from './components/PlaylistLink'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function AppContent() {
 const [searchResults, setSearchResults] = useState([]);

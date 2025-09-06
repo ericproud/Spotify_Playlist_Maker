@@ -128,7 +128,8 @@ const createPlaylist = async (name, trackUris) => {
     },
     body: JSON.stringify({
       name: name,
-      public: true
+      public: true,
+      description: 'New playlist created via spotifyplaylistmaker.vercel.app'
     })
   });
 

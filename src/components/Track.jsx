@@ -3,6 +3,19 @@ import React from 'react'
 function Track({ track, onAdd, onRemove, addMode }) {
 
     return (
+      <Card>
+          <Card.Body>
+              <Card.Title>{track.name}</Card.Title>
+              <Card.Text>
+                  {track.artists ? track.artists.join(', ') : ''} | {track.album}
+              </Card.Text>
+              <Button variant={addMode ? "success" : "danger"} onClick={() => onAdd(track)} >
+                {addMode ? "+" : "-"}
+              </Button>
+          </Card.Body>
+      </Card>
+
+      /*
         <div>
             <h2 className="songTitle">
                 {track.name}
@@ -25,6 +38,8 @@ function Track({ track, onAdd, onRemove, addMode }) {
                     )
             }
         </div>
+
+      */
     )
 }
 
