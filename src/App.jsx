@@ -1,7 +1,6 @@
 import React, { useCallback, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
 import SearchBar from './components/SearchBar.jsx'
 import SearchResults from './components/SearchResults.jsx'
 import Playlist from './components/Playlist.jsx' 
@@ -12,6 +11,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import SpotifyCallback from './components/SpotifyCallback'
 import PlaylistLink from './components/PlaylistLink'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'
 
 function AppContent() {
 const [searchResults, setSearchResults] = useState([]);
