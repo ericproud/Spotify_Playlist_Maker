@@ -13,7 +13,7 @@ function SearchBar({ onSearch }) {
 
   return (
     <div>
-      <Form className="d-flex">
+      <Form className="d-flex" onSubmit={handleSearch}>
         <Form.Control
           type="search" 
           placeholder="Enter A Song, Album, or Artist"
