@@ -15,7 +15,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 function AppContent() {
-const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
   const [playlistName, setPlaylistName] = useState('My Playlist');
   const [playlistTracks, setPlaylistTracks] = useState([]);
   const [playlistLink, setPlaylistLink] = useState('https://open.spotify.com/playlist/');
@@ -79,13 +79,13 @@ const [searchResults, setSearchResults] = useState([]);
     </div>
   )
 }
-// stuff
+
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/callback" element={<SpotifyCallback />} />
-        <Route path="/" element={<AppContent />} />
+        <Route path="/" element={localStorage.getItem("access_token") ? <AppContent /> : <Authorization />} />
       </Routes>
     </Router>
 
