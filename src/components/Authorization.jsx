@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { redirectToAuth } from '../util/Spotify';
+import Button from 'react-bootstrap/Button';
 
 function Authorization() {
   const handleLogin = () => {
@@ -8,8 +9,7 @@ function Authorization() {
 
   return (
     <div>
-      <h2>Authorization</h2>
-      <button onClick={handleLogin}>Log in with Spotify</button>
+      <Button variant="danger" onClick={handleLogin}>For Application To Function, Please Login With Spotify</Button>
     </div>
   );
 }

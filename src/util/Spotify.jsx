@@ -72,7 +72,7 @@ const getToken = async (code) => {
   const response = await fetch(endpoint, payload);
 
   if (!response.ok) {
-    throw new Error('Failed to fetch access token');
+    localStorage.setItem('access_token', null);
   }
 
   const data = await response.json();

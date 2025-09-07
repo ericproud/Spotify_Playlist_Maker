@@ -19,7 +19,6 @@ const [searchResults, setSearchResults] = useState([]);
   const [playlistName, setPlaylistName] = useState('My Playlist');
   const [playlistTracks, setPlaylistTracks] = useState([]);
   const [playlistLink, setPlaylistLink] = useState('https://open.spotify.com/playlist/');
-  const [authorized, setAuthorized] = useState(false);
 
   const addTrack = (track) => {
     if (!playlistTracks.some((playlistTrack) => playlistTrack.id === track.id)) {
@@ -46,7 +45,7 @@ const [searchResults, setSearchResults] = useState([]);
   return (
     <div className="App">
       <div className="request-auth-button">
-        <Authorization />
+        {localStorage.getItem('access_token') ?  <></> : <Authorization />}
       </div>
       <Row>
         <Col md={6} className="d-flex justify-content-end">
