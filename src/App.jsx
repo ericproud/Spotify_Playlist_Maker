@@ -73,33 +73,7 @@ const [searchResults, setSearchResults] = useState([]);
           </div>  
       </Row>
     </div>
-
-
-    /*
-    <div className="App">
-      <div className="request-auth-button">
-        <Authorization />
-      </div>
-      <div className="search-bar">
-        <SearchBar onSearch={search} />
-      </div>
-      <div className="search-results">
-        <SearchResults searchResults={searchResults} onAdd={addTrack} />
-      </div>
-      <div className="playlist">
-        <Playlist 
-          playlistTracks={playlistTracks} 
-          onRemove={removeTrack} 
-          onNameChange={updatePlaylistName} 
-          onSave={savePlaylist} 
-        />
-      </div>
-      <div className="playlist-link">
-        <PlaylistLink link={playlistLink} />
-      </div>
-    </div>
   )
-  */
 }
 // stuff
 function App() {
