@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 function SearchBar({ onSearch }) {
   const [term, setTerm] = useState('');
@@ -10,21 +12,25 @@ function SearchBar({ onSearch }) {
   };
 
   const handleKeyDown = (e) => {
-    if (e.key) {
+    if (e.key === 'Enter') {
       handleSearch();
     }
   };
 
   return (
     <div>
-      <input
-        type="text"
-        value={term}
-        onChange={e => setTerm(e.target.value)}
-        onKeyDown={handleKeyDown}
-        placeholder="Enter a song, album, or artist"
-      />
-      <button onClick={handleSearch}>Search</button>
+      <Form className="d-flex">
+        <Form.Control
+          type="search" 
+          placeholder="Enter A Song, Album, or Artist"
+          value={term}
+          onChange={(e) => setTerm(e.target.value)}
+          onKeyDown={handleKeyDown}
+          className="me-2"
+          aria-label="Search"
+        />
+        <Button variant="outline-success" onClick={handleSearch}>SEARCH</Button>
+      </Form>
     </div>
   );
 }
