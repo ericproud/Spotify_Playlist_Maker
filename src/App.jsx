@@ -10,6 +10,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import SpotifyCallback from './components/SpotifyCallback'
 import PlaylistLink from './components/PlaylistLink'
 import './App.css'
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function AppContent() {
 const [searchResults, setSearchResults] = useState([]);
@@ -40,7 +43,39 @@ const [searchResults, setSearchResults] = useState([]);
   }, []);
 
   return (
+    <div className="App">
+      <div className="request-auth-button">
+        <Authorization />
+      </div>
+      <Row>
+        <Col md={6}>
+          <div className="search-bar">
+            <SearchBar onSearch={search} />
+          </div>  
+          <div className="search-results">
+            <SearchResults searchResults={searchResults} onAdd={addTrack} />
+          </div>
+        </Col>
 
+        <Col md={6}>
+          <div className="playlist">
+            <Playlist 
+              playlistName={playlistName}
+              playlistTracks={playlistTracks} 
+              onRemove={removeTrack} 
+              onNameChange={updatePlaylistName} 
+              onSave={savePlaylist}
+            />
+          </div>
+        </Col>
+          <div className="playlist-link">
+            <PlaylistLink link={playlistLink} />
+          </div>  
+      </Row>
+    </div>
+
+
+    /*
     <div className="App">
       <div className="request-auth-button">
         <Authorization />
@@ -64,6 +99,7 @@ const [searchResults, setSearchResults] = useState([]);
       </div>
     </div>
   )
+  */
 }
 // stuff
 function App() {
