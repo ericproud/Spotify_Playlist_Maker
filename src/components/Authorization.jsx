@@ -13,22 +13,18 @@ function Authorization() {
   };
 
   return (
-    <Container fluid className="vh-100 bg-dark d-flex justify-content-center align-items-center">
-      <Row className="w-100">
-        <Col className="d-flex justify-content-center">
-          <Card bg="dark" text="white" className="text-center border-0 p-5" style={{ maxWidth: '600px' }}>
-            <Card.Body>
-              <Card.Title className="display-1 mb-4">
-                Welcome to Spotify Playlist Maker
-              </Card.Title>
-              <Card.Text className="fs-4 mb-5">
-                Please login with your Spotify account to continue.
-              </Card.Text>
-              <Button variant="success" size="lg" onClick={handleLogin}>
-                Login
-              </Button>
-            </Card.Body>
-          </Card>
+    <Container fluid className="vh-100 d-flex flex-column justify-content-center align-items-center bg-dark text-white overflow-hidden">
+      <Row className="w-100 justify-content-center">
+        <Col xs={12} className="text-center">
+          <h1 className="display-1 mb-3 text-truncate">
+            Welcome to Spotify Playlist Maker
+          </h1>
+          <p className="fs-4 mb-4 text-truncate">
+            Please login with your Spotify account to continue.
+          </p>
+          <Button variant="success" size="lg" onClick={handleLogin}>
+            Login
+          </Button>
         </Col>
       </Row>
     </Container>
