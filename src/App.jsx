@@ -49,24 +49,28 @@ const [searchResults, setSearchResults] = useState([]);
         <Authorization />
       </div>
       <Row>
-        <Col md={6} className="d-flex justify-content-end" style={{width: '800px'}}>
-          <div className="search-bar">
-            <SearchBar onSearch={search} />
-          </div>  
-          <div className="search-results">
-            <SearchResults searchResults={searchResults} onAdd={addTrack} />
+        <Col md={6} className="d-flex justify-content-end">
+          <div style={{width: '800px'}}>
+            <div className="search-bar">
+              <SearchBar onSearch={search} />
+            </div>  
+            <div className="search-results">
+              <SearchResults searchResults={searchResults} onAdd={addTrack} />
+            </div>
           </div>
         </Col>
 
-        <Col md={6} className="d-flex justify-content-start" style={{width: '800px'}}>
-          <div className="playlist">
-            <Playlist 
-              playlistName={playlistName}
-              playlistTracks={playlistTracks} 
-              onRemove={removeTrack} 
-              onNameChange={updatePlaylistName} 
-              onSave={savePlaylist}
-            />
+        <Col md={6} className="d-flex justify-content-start">
+          <div style={{width: '800px'}}>
+            <div className="playlist">
+              <Playlist 
+                playlistName={playlistName}
+                playlistTracks={playlistTracks} 
+                onRemove={removeTrack} 
+                onNameChange={updatePlaylistName} 
+                onSave={savePlaylist}
+              />
+            </div>
           </div>
         </Col>
         <div className="playlist-link">
