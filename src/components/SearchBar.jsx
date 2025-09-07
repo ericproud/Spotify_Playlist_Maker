@@ -5,7 +5,9 @@ import Form from 'react-bootstrap/Form';
 function SearchBar({ onSearch }) {
   const [term, setTerm] = useState('');
 
-  const handleSearch = () => {
+  const handleSearch = (e) => {
+    e.preventDefault();
+    
     if (onSearch && term.trim()) {
       onSearch(term);
     }
