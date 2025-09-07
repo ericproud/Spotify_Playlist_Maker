@@ -44,9 +44,6 @@ function AppContent() {
 
   return (
     <div className="App">
-      <div className="request-auth-button">
-        {localStorage.getItem('access_token') ?  <></> : <Authorization />}
-      </div>
       <Row>
         <Col md={6} className="d-flex justify-content-end">
           <div style={{width: '800px'}}>
