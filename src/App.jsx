@@ -43,6 +43,7 @@ const [searchResults, setSearchResults] = useState([]);
   return (
 
     <div className="App">
+      <Track track={{name: "Track Name", artists: ["Artist 1", "Artist 2"], album: "Album Name"}} addMode={true} onAdd={(track) => console.log("Add", track)} onRemove={(track) => console.log("Remove", track)} />
       <div className="request-auth-button">
         <Authorization />
       </div>
