@@ -49,7 +49,7 @@ const [searchResults, setSearchResults] = useState([]);
         <Authorization />
       </div>
       <Row>
-        <Col md={6}>
+        <Col md={6} style={{width: '300px'}}>
           <div className="search-bar">
             <SearchBar onSearch={search} />
           </div>  
@@ -58,7 +58,7 @@ const [searchResults, setSearchResults] = useState([]);
           </div>
         </Col>
 
-        <Col md={6}>
+        <Col md={6} style={{width: '300px'}}>
           <div className="playlist">
             <Playlist 
               playlistName={playlistName}
@@ -69,9 +69,9 @@ const [searchResults, setSearchResults] = useState([]);
             />
           </div>
         </Col>
-          <div className="playlist-link">
-            <PlaylistLink link={playlistLink} />
-          </div>  
+        <div className="playlist-link">
+          <PlaylistLink link={playlistLink} />
+        </div>  
       </Row>
     </div>
   )
