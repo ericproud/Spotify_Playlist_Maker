@@ -49,7 +49,7 @@ const [searchResults, setSearchResults] = useState([]);
         <Authorization />
       </div>
       <Row>
-        <Col md={6} style={{width: '300px'}}>
+        <Col md={6} className="d-flex justify-content-end" style={{width: '800px'}}>
           <div className="search-bar">
             <SearchBar onSearch={search} />
           </div>  
@@ -58,7 +58,7 @@ const [searchResults, setSearchResults] = useState([]);
           </div>
         </Col>
 
-        <Col md={6} style={{width: '300px'}}>
+        <Col md={6} className="d-flex justify-content-start" style={{width: '800px'}}>
           <div className="playlist">
             <Playlist 
               playlistName={playlistName}
