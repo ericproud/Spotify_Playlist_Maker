@@ -11,12 +11,6 @@ function SearchBar({ onSearch }) {
     }
   };
 
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      handleSearch();
-    }
-  };
-
   return (
     <div>
       <Form className="d-flex">
@@ -25,7 +19,6 @@ function SearchBar({ onSearch }) {
           placeholder="Enter A Song, Album, or Artist"
           value={term}
           onChange={(e) => setTerm(e.target.value)}
-          onKeyDown={handleKeyDown}
           className="me-2"
           aria-label="Search"
         />
