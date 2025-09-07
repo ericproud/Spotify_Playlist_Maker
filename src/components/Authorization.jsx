@@ -13,14 +13,14 @@ function Authorization() {
 
   return (
     <div style={{ 
-      backgroundColor: '#1db954',  // Spotify green background
+      backgroundColor: 'dark',  // Spotify green background
       height: '100vh', 
       width: '100vw', 
       display: 'flex', 
       justifyContent: 'center', 
       alignItems: 'center',
       flexDirection: 'column',
-      color: 'white',
+      color: 'success',
       textAlign: 'center',
       padding: '20px'
     }}>
@@ -31,7 +31,8 @@ function Authorization() {
         Please login with your Spotify account to continue.
       </p>
       <Button 
-        variant="light" 
+        variant="success" 
+        color = "white"
         size="lg" 
         onClick={handleLogin}
         style={{ fontSize: '1.5rem', padding: '1rem 2rem' }}
