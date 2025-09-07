@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { redirectToAuth, getCodeFromRedirectUri, getToken } from '../util/Spotify';
+import { redirectToAuth } from '../util/Spotify';
 
 function Authorization() {
   const handleLogin = () => {

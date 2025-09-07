@@ -10,7 +10,7 @@ function SearchBar({ onSearch }) {
   };
 
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
+    if (e.key) {
       handleSearch();
     }
   };
