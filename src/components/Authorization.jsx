@@ -12,24 +12,34 @@ function Authorization() {
   };
 
   return (
-    <Container className="vh-100 d-flex justify-content-center align-items-center">
-      <Row className="w-100">
-        <Col className="d-flex justify-content-center">
-          <Card style={{ maxWidth: '400px', textAlign: 'center' }} bg="dark" text="light">
-            <Card.Body>
-              <Card.Title>Welcome to Spotify Playlist Maker</Card.Title>
-              <Card.Text>
-                Please login with your Spotify account to continue.
-              </Card.Text>
-              <Button variant="success" onClick={handleLogin}>
-                Login
-              </Button>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
-  );
+    <div style={{ 
+      backgroundColor: '#1db954',  // Spotify green background
+      height: '100vh', 
+      width: '100vw', 
+      display: 'flex', 
+      justifyContent: 'center', 
+      alignItems: 'center',
+      flexDirection: 'column',
+      color: 'white',
+      textAlign: 'center',
+      padding: '20px'
+    }}>
+      <h1 style={{ fontSize: '4rem', marginBottom: '1rem' }}>
+        Welcome to Spotify Playlist Maker
+      </h1>
+      <p style={{ fontSize: '1.5rem', marginBottom: '2rem' }}>
+        Please login with your Spotify account to continue.
+      </p>
+      <Button 
+        variant="light" 
+        size="lg" 
+        onClick={handleLogin}
+        style={{ fontSize: '1.5rem', padding: '1rem 2rem' }}
+      >
+        Login
+      </Button>
+    </div>
+ );
 }
 
 export default Authorization;
