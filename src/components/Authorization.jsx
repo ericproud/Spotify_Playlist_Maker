@@ -13,10 +13,10 @@ function Authorization() {
   };
 
   return (
-    <Container className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
+    <Container className="d-flex justify-content-center align-items-center" style={{ backgroundColor: 'success', height: '100vh' }}>
       <Row>
         <Col className="col-12">
-          <Card className="w-100 h-100">
+          <Card className="w-100 h-100" bg="success" text="white">
             <Card.Body>
               <Card.Title>Welcome to Spotify Playlist Maker</Card.Title>
               <Card.Text>Please login with your Spotify account to continue</Card.Text>
