@@ -13,17 +13,15 @@ function Authorization() {
   };
 
   return (
-    <div className="d-flex flex-column justify-content-center align-items-center vh-100 vw-100 bg-dark text-white m-0 p-0 overflow-hidden">
-      <h1 className="display-1 text-center mb-3">
-        Welcome to Spotify Playlist Maker
-      </h1>
-      <p className="fs-4 text-center mb-5">
-        Please login with your Spotify account to continue.
-      </p>
+    <Card className="w-100 h-100">
+      <Card.Body>
+        <Card.Title>Welcome to Spotify Playlist Maker</Card.Title>
+        <Card.Text>Please login with your Spotify account to continue</Card.Text>
+      </Card.Body>
       <Button variant="success" size="lg" onClick={handleLogin}>
         Login
       </Button>
-    </div>
+    </Card>
   );
 }
 
