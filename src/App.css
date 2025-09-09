@@ -40,3 +40,12 @@
 .read-the-docs {
   color: #888;
 }
+
+.SearchResults .TrackList {
+  min-height: 400px; /* reserve space for results */
+  max-height: 600px; /* optional, for scrollable area */
+  overflow-y: auto;  /* scroll if results exceed max-height */
+  border: 1px solid #444; /* optional, visual aid */
+  padding: 8px;
+  background-color: #1e1e1e; /* optional styling */
+}
