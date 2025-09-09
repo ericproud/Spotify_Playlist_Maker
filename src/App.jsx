@@ -82,12 +82,10 @@ function App() {
   return (
     <Router>
       <div
-        className="bg-dark text-light d-flex"
+        className="bg-dark text-light d-flex justify-content-center align-items-center"
         style={{
-          height: "100vh",
-          width: "100vw",
-          justifyContent: "center",
-          alignItems: "center",
+          height: "100%",
+          width: "100%",
           padding: "0px",
           margin: "0px"
         }}
