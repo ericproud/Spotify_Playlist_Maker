@@ -88,6 +88,8 @@ function App() {
           width: "100vw",
           justifyContent: "center",
           alignItems: "center",
+          padding: "0px",
+          margin: "0px"
         }}
       >
         <Routes>
