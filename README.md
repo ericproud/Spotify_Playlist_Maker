@@ -3,7 +3,8 @@
 
 ## Overview
 This is a web application that allows you to create, and save a playlist to your spotify account without ever using spotify's proprietary software.
-NOTE: USE THIS APP ON YOUR COMPUTER, the app's UI is currently not suitable for use on your phone and thus it can't be used properly at the moment through a phone.
+
+NOTE: USE THIS APP ON YOUR COMPUTER, the app's UI is currently not suitable for use on your phone.
 
 ## Features 
 - User authentication
