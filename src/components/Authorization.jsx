@@ -13,7 +13,7 @@ function Authorization() {
   };
 
   return (
-    <Container className="d-flex justify-content-center align-items-center" style={{ backgroundColor: 'success', height: '100vh' }}>
+    <Container className="d-flex justify-content-center align-items-center" style={{ backgroundColor: 'dark', height: '100vh' }}>
       <Row>
         <Col className="col-12">
           <Card className="w-100 h-100" bg="success" text="white">

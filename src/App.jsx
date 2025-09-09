@@ -81,8 +81,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/callback" element={<SpotifyCallback/>} />
-        <Route path="/" element={localStorage.getItem("access_token") ? <AppContent /> : <Authorization />} />
+        <div className="App-header" style={{ backgroundColor: 'dark' }}>
+          <Route path="/callback" element={<SpotifyCallback/>} />
+          <Route path="/" element={localStorage.getItem("access_token") ? <AppContent /> : <Authorization />} />
+        </div>
       </Routes>
     </Router>
 
