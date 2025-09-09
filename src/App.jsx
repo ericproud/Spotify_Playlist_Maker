@@ -83,8 +83,8 @@ function App() {
     <Router>
       <div
         style={{
-          height: "100vh",
-          width: "100vw",
+          height: "100%",
+          width: "100%",
           backgroundColor: "#212529",
           display: "flex",
           justifyContent: "center",
