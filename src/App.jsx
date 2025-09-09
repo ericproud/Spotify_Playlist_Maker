@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import SpotifyCallback from './components/SpotifyCallback'
 import PlaylistLink from './components/PlaylistLink'
 import './App.css'
+import './index.css' 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
