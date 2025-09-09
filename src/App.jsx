@@ -18,7 +18,7 @@ import Col from 'react-bootstrap/Col';
 
 function AppContent() {
   const [searchResults, setSearchResults] = useState([]);
-  const [playlistName, setPlaylistName] = useState('My Playlist');
+  const [playlistName, setPlaylistName] = useState('New Playlist');
   const [playlistTracks, setPlaylistTracks] = useState([]);
   const [playlistLink, setPlaylistLink] = useState('https://open.spotify.com/playlist/');
 
