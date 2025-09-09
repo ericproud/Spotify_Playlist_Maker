@@ -81,7 +81,6 @@ function AppContent() {
 function App() {
   return (
     <Router>
-      {/*
       <div
         className="bg-dark text-light d-flex"
         style={{
@@ -93,38 +92,11 @@ function App() {
           margin: "0px"
         }}
       >
-      */}
         <Routes>
           <Route path="/callback" element={<SpotifyCallback/>} />
-          <Route 
-            path="/" 
-            element={
-              localStorage.getItem("access_token") ? 
-              <AppContent 
-                className="bg-dark text-light d-flex"
-                style={{
-                  height: "100vh",
-                  width: "100vw",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  padding: "0px",
-                  margin: "0px"
-                }}
-              /> : 
-              <Authorization                 
-                className="bg-dark text-light d-flex"
-                style={{
-                  height: "100vh",
-                  width: "100vw",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  padding: "0px",
-                  margin: "0px"
-                }}
-              />
-            }   
-          />
+          <Route path="/" element={localStorage.getItem("access_token") ? <AppContent /> : <Authorization />} />
         </Routes>
+      </div>
     </Router>
 
   )
