@@ -13,7 +13,7 @@ function Authorization() {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center text-center" style={{ height: "100%", width: "100%" }}>
+    <div>
       <Card className="shadow-lg rounded-4" bg="success" text="white" style={{ maxWidth: "500px", width: "90%" }}>
         <Card.Body className="text-center">
           <Card.Title>Welcome to Spotify Playlist Maker</Card.Title>
