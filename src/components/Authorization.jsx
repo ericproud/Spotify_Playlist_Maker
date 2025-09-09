@@ -13,30 +13,24 @@ function Authorization() {
   };
 
   return (
-        <Container 
-      className="flex-grow-1 d-flex justify-content-center align-items-center"
-    >
-      <Row className="w-100">
-        <Col className="col-12">
-          <Card className="shadow-lg rounded-4" bg="success" text="white">
-            <Card.Body>
-              <Card.Title>Welcome to Spotify Playlist Maker</Card.Title>
-              <Card.Text>
-                Please login with your Spotify account to continue
-              </Card.Text>
-              <Button 
-                variant="light" 
-                size="lg" 
-                onClick={handleLogin} 
-                className="mt-3"
-              >
-                Login
-              </Button>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
+    <div className="d-flex justify-content-center align-items-center flex-grow-1">
+      <Card className="shadow-lg rounded-4" bg="success" text="white">
+        <Card.Body className="text-center">
+          <Card.Title>Welcome to Spotify Playlist Maker</Card.Title>
+          <Card.Text>
+            Please login with your Spotify account to continue
+          </Card.Text>
+          <Button 
+            variant="light" 
+            size="lg" 
+            onClick={handleLogin} 
+            className="mt-3"
+          >
+            Login
+          </Button>
+        </Card.Body>
+      </Card>
+    </div>
   );
 }
 
