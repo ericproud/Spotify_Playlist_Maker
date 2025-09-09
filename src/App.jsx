@@ -80,12 +80,12 @@ function AppContent() {
 function App() {
   return (
     <Router>
-      <Routes>
-        <div className="App-header" style={{ backgroundColor: 'dark' }}>
+      <div className="App-header bg-dark text-light" style={{ minHeight: "100vh" }}>
+        <Routes>
           <Route path="/callback" element={<SpotifyCallback/>} />
           <Route path="/" element={localStorage.getItem("access_token") ? <AppContent /> : <Authorization />} />
-        </div>
-      </Routes>
+        </Routes>
+      </div>
     </Router>
 
   )
