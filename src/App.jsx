@@ -9,6 +9,7 @@ import Authorization from './components/Authorization.jsx'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import SpotifyCallback from './components/SpotifyCallback'
 import PlaylistLink from './components/PlaylistLink'
+import PlaylistName from './components/PlaylistName.jsx'
 import './App.css'
 import './index.css' 
 import Container from 'react-bootstrap/Container';
@@ -60,11 +61,10 @@ function AppContent() {
         <Col md={6} className="d-flex justify-content-start">
           <div style={{width: '800px'}}>
             <div className="playlist">
+              <PlaylistName onNameChange={updatePlaylistName}/>
               <Playlist 
-                playlistName={playlistName}
                 playlistTracks={playlistTracks} 
                 onRemove={removeTrack} 
-                onNameChange={updatePlaylistName} 
                 onSave={savePlaylist}
               />
             </div>
