@@ -1,10 +1,11 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import { useState } from 'react';
 
 
 
-function PlaylistName({ onNameChange }) {
+function PlaylistName({ playlistName, onNameChange }) {
   const [term, setTerm] = useState(playlistName || "New Playlist");
 
   return (
