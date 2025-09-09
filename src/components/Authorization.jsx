@@ -14,7 +14,15 @@ function Authorization() {
 
   return (
     <div>
-      <Card className="shadow-lg rounded-4" bg="success" text="white" style={{ width: "clamp(300px, 50%, 500px)" }}>
+      <Card       
+        className="shadow-lg rounded-4 text-center"
+        bg="success"
+        text="white"
+        style={{
+          width: "clamp(300px, 40%, 500px)", // responsive: min 300px, max 500px
+          margin: "0 auto", // horizontal centering
+        }}
+      >
         <Card.Body className="text-center">
           <Card.Title>Welcome to Spotify Playlist Maker</Card.Title>
           <Card.Text>
