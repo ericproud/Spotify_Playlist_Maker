@@ -96,9 +96,35 @@ function App() {
       */}
         <Routes>
           <Route path="/callback" element={<SpotifyCallback/>} />
-          <Route path="/" element={localStorage.getItem("access_token") ? <AppContent /> : <Authorization />} />
+          <Route 
+            path="/" 
+            element={
+              localStorage.getItem("access_token") ? 
+              <AppContent 
+                className="bg-dark text-light d-flex"
+                style={{
+                  height: "100vh",
+                  width: "100vw",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  padding: "0px",
+                  margin: "0px"
+                }}
+              /> : 
+              <Authorization                 
+                className="bg-dark text-light d-flex"
+                style={{
+                  height: "100vh",
+                  width: "100vw",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  padding: "0px",
+                  margin: "0px"
+                }}
+              />
+            }   
+          />
         </Routes>
-      
     </Router>
 
   )
