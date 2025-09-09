@@ -14,7 +14,7 @@ function Authorization() {
 
   return (
         <Container 
-      className="d-flex justify-content-center align-items-center flex-grow-1"
+      className="flex-grow-1 d-flex justify-content-center align-items-center"
     >
       <Row className="w-100">
         <Col className="col-12">
