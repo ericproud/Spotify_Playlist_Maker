@@ -30,7 +30,7 @@ const redirectToAuth = async () => {
   const hashed = await sha256(codeVerifier);
   const codeChallenge = base64encode(hashed);
 
-  localStorage.setItem('code_verifier', codeVerifier);
+  sessionStorage.setItem('code_verifier', codeVerifier);
 
   const params = {
     response_type: 'code',
@@ -53,7 +53,7 @@ const getCodeFromRedirectUri = () => {
 
 // Step 3: Call this with the code from the URL
 const getToken = async (code) => {
-  const codeVerifier = localStorage.getItem('code_verifier');
+  const codeVerifier = sessionStorage.getItem('code_verifier');
   const endpoint = 'https://accounts.spotify.com/api/token';
 
   const payload = {
@@ -72,15 +72,15 @@ const getToken = async (code) => {
   const response = await fetch(endpoint, payload);
 
   if (!response.ok) {
-    localStorage.setItem('access_token', null);
+    sessionStorage.setItem('access_token', null);
   }
 
   const data = await response.json();
-  localStorage.setItem('access_token', data.access_token);
+  sessionStorage.setItem('access_token', data.access_token);
 };
 
 const getUserId = async () => {
-  const accessToken = localStorage.getItem('access_token');
+  const accessToken = sessionStorage.getItem('access_token');
   if (!accessToken) throw new Error('No access token available');
   
   const response = await fetch('https://api.spotify.com/v1/me', {
@@ -94,7 +94,7 @@ const getUserId = async () => {
 }
 
 const searchSpotify = async (term) => {
-  const accessToken = localStorage.getItem('access_token');
+  const accessToken = sessionStorage.getItem('access_token');
   if (!accessToken) throw new Error('No access token available');
 
   const response = await fetch(`https://api.spotify.com/v1/search?type=track&q=${encodeURIComponent(term)}`, {
@@ -116,7 +116,7 @@ const searchSpotify = async (term) => {
 };
 
 const createPlaylist = async (name, trackUris) => {
-  const accessToken = localStorage.getItem('access_token');
+  const accessToken = sessionStorage.getItem('access_token');
   if (!accessToken) throw new Error('No access token available');
   const userId = await getUserId();
 

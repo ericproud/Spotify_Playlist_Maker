@@ -100,7 +100,7 @@ function App() {
       >
         <Routes>
           <Route path="/callback" element={<SpotifyCallback/>} />
-          <Route path="/" element={localStorage.getItem("access_token") ? <AppContent /> : <Authorization />} />
+          <Route path="/" element={sessionStorage.getItem("access_token") ? <AppContent /> : <Authorization />} />
         </Routes>
       </div>
     </Router>
