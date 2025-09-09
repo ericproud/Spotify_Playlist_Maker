@@ -44,7 +44,7 @@
 .SearchResults .TrackList {
   min-height: 500px; 
   max-height: 500px;
-  overflow-y: auto; 
+  overflow-y: visible; 
   padding: 8px;
   background-color: #1e1e1e;
 }
@@ -52,7 +52,7 @@
 .Playlist .TrackList {
   min-height: 500px; 
   max-height: 500px;
-  overflow-y: auto; 
+  overflow-y: visible; 
   padding: 8px;
   background-color: #1e1e1e;
 }
