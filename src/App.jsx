@@ -61,7 +61,10 @@ function AppContent() {
         <Col md={6} className="d-flex justify-content-start">
           <div style={{width: '800px'}}>
             <div className="playlist">
-              <PlaylistName onNameChange={updatePlaylistName}/>
+              <PlaylistName 
+                playlistName={playlistName}
+                onNameChange={updatePlaylistName}
+              />
               <Playlist 
                 playlistTracks={playlistTracks} 
                 onRemove={removeTrack} 

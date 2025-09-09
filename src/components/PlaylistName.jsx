@@ -2,9 +2,10 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 
-const [term, setTerm] = React.useState(playlistName || "New Playlist");
+
 
 function PlaylistName({ onNameChange }) {
+  const [term, setTerm] = useState(playlistName || "New Playlist");
 
   return (
     <Form>
