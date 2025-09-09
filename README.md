@@ -13,9 +13,9 @@ NOTE: USE THIS APP ON YOUR COMPUTER, the app's UI is currently not suitable for 
 - Stylized UI
 
 ## Tech Stack
-Frontend: Javascript, ReactJS, HTML/JSX
-API: [Spotify Web API](https://developer.spotify.com/documentation/web-api)
-Styling: React-Bootstrap, CSS
+- Frontend: Javascript, ReactJS, HTML/JSX
+- API: [Spotify Web API](https://developer.spotify.com/documentation/web-api)
+- Styling: React-Bootstrap, CSS
 
 # Technical Details
 - User authentication is done using [Spotify's PCKE Authorization flow](https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow)
